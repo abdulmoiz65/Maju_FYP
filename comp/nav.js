@@ -19,3 +19,15 @@ document.getElementById('toggleButton').addEventListener('click', function() {
     barsIcon.style.display = sidebar.classList.contains('visible') ? 'none' : 'inline';
     closeIcon.style.display = sidebar.classList.contains('visible') ? 'inline' : 'none';
 });
+
+// slider 
+
+function changeImage(imageSrc) {
+    const mainImage = document.getElementById('currentImage');
+    mainImage.style.opacity = '0';
+    
+    setTimeout(() => {
+        mainImage.src = imageSrc;
+        mainImage.style.opacity = '1';
+    }, 300);
+}
