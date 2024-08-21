@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .footer {
+            background: linear-gradient(135deg, #0a2151, #1d2f6f);
+            color: white;
+            padding: 40px 0;
+        }
+        .footer a {
+            color: #b4c0e3;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer .social-icons a {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            background-color: #1d2f6f;
+            font-size: 18px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            color: #b4c0e3;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            color: white;
+            background-color: #a91b22;
+        }
+
+        .footer button {
+            font-weight: 500;
+            background-color: #1d2f6f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .footer button:hover {
+            background-color: #a91b22;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .footer .col-md-3 {
+                margin-bottom: 20px;
+            }
+
+            .footer .social-icons {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer h5 {
+                text-align: center;
+            }
+
+            .footer .social-icons a {
+                margin-right: 10px;
+                font-size: 20px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+            }
+
+            .footer a {
+                margin-right: 10px;
+                font-size: 16px;
+            }
+
+            .footer .btn {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        .last {
+            padding-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a2151;
+            height: 55px;
+            color: #fff;
+            font-size: 16px;
+            flex-direction: column;
+            text-align: center;
+            border-top: 1px solid #1d2f6f;
+        }
+
+        .last a {
+            color: #a91b22;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .last a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .last {
+                height: auto;
+                padding: 1rem;
+            }
+
+            .last p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .last a {
+                display: block;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-12 col-lg-4">
+                    <h5>Follow Us on Social Media</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12 col-lg-4">
+                    <h5>Other Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Societies & Clubs</a></li>
+                        <li><a href="#">Alumni</a></li>
+                        <li><a href="#">Scholarships and Financial Aid</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Vehicles and Routes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-12 col-lg-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        Mohammad Ali Jinnah University,<br> MAJU Bus Stop, Main Shahrah-e-Faisal,<br> 22-E, Block-6, PECHS,
+                        Karachi-75400
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> +92-21-111-87-87-87<br>
+                        <i class="fas fa-envelope"></i> info@jinnah.edu<br>
+                        <i class="fas fa-fax"></i> +92-21-3431-1327
+                    </p>
+                    <button class="btn">Contact Us</button>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <section class="last">
+        <p>
+            All rights reserved by <a href="">@Muhammad Ali Jinnah University</a>
+        </p>
+    </section>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
