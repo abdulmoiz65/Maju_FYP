@@ -13,7 +13,14 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-        }         
+        }
+        .main .col{
+            border: 3px solid;
+            width: 100%;
+            height: 350px;
+            margin-bottom: 2rem;
+        }
+      
         .center{
             margin: 8rem;
             text-align: center;
@@ -28,7 +35,7 @@
             border-right: 1px solid #ddd;
             padding-top: 20px;
             z-index: 1000;
-      /* for hide the sidebar        */
+            /* for hide the sidebar */
             transform: translateX(-250px);
             transition: transform 0.3s ease;
         }
@@ -56,36 +63,32 @@
             margin-left: 2rem;
             background-color: white;
             padding: 10px 20px;
-            /* border-bottom: 1px solid #ddd; */
             position: relative;
             transition: margin-left 0.3s ease;
         }
         .navbar-text{
             display: block;
-            
         }
         .navbar-text h6{
             color: #d62c1f;
         }
         .navbar-text h3{
-           
-            /* text-shadow: 5px 5px 25px  #112269; */
             color: #112269;
         }
         .navbar-custom .navbar-brand img {
-            height: 60px;
+            height: 80px;
         }
 
         .content {
-            /* padding: 20px; */
             transition: margin-left 0.3s ease;
         }
 
         .toggle-btn {
-            
-            position: fixed;
+            border: 2px solid  #d62c1f;
+
+            position: absolute;
             top: 20px;
-            left: 20px;
+            right: -40px;
             z-index: 1001;
             font-size: 24px;
             background: none;
@@ -108,30 +111,16 @@
         .sidebar.visible + .toggle-btn .fa-close {
             display: inline;
         }
-
     </style>
 </head>
 <body>
 
-    <button class="toggle-btn" id="toggleButton">
-        <i class="fa fa-bars"></i>
-        <i class="fa fa-close"></i>
-    </button>
-
-    <nav class="navbar navbar-custom" id="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/JINNAH-logo.png" alt="MAJU Logo">
-            </a>
-            <div class="navbar-text">
-                <h3>Mohammad Ali Jinnah University</h3>
-                <h6>Final Year Projects</h6>
-            </div>
-        </div>
-    </nav>
-
     <div class="sidebar" id="sidebar">
-        <ul class="nav flex-column sidebar-content ">
+        <button class="toggle-btn" id="toggleButton">
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-close"></i>
+        </button>
+        <ul class="nav flex-column sidebar-content">
             <li class="nav-item">
                 <a class="nav-link" href="#">HOME</a>
             </li>
@@ -171,34 +160,46 @@
         </ul>
     </div>
 
+    <nav class="navbar navbar-custom" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/JINNAH-logo.png" alt="MAJU Logo">
+            </a>
+            <div class="navbar-text">
+                <h3>Mohammad Ali Jinnah University</h3>
+                <h6>Final Year Projects</h6>
+            </div>
+        </div>
+    </nav>
+
     <div class="content" id="content">
-      
-</div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
       document.getElementById('toggleButton').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidebar');
-    const navbar = document.getElementById('navbar');
-    const content = document.getElementById('content');
-    const toggleButton = document.getElementById('toggleButton');
+        const sidebar = document.getElementById('sidebar');
+        const navbar = document.getElementById('navbar');
+        const content = document.getElementById('content');
+        const toggleButton = document.getElementById('toggleButton');
+        
+        sidebar.classList.toggle('visible');
+        
+        if (sidebar.classList.contains('visible')) {
+            content.style.marginLeft = '250px';
+            navbar.style.marginLeft = '250px';
+        } else {
+            content.style.marginLeft = '0';
+            navbar.style.marginLeft = '2rem';
+        }
     
-    sidebar.classList.toggle('visible');
-    
-    if (sidebar.classList.contains('visible')) {
-        content.style.marginLeft = '250px';
-        navbar.style.marginLeft = '250px';
-    } else {
-        content.style.marginLeft = '0';
-        navbar.style.marginLeft = '2rem';
-    }
-    
-    const barsIcon = toggleButton.querySelector('.fa-bars');
-    const closeIcon = toggleButton.querySelector('.fa-close');
-    barsIcon.style.display = sidebar.classList.contains('visible') ? 'none' : 'inline';
-    closeIcon.style.display = sidebar.classList.contains('visible') ? 'inline' : 'none';
-});
+        const barsIcon = toggleButton.querySelector('.fa-bars');
+        const closeIcon = toggleButton.querySelector('.fa-close');
+        barsIcon.style.display = sidebar.classList.contains('visible') ? 'none' : 'inline';
+        closeIcon.style.display = sidebar.classList.contains('visible') ? 'inline' : 'none';
+    });
 
     </script>
 
