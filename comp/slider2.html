@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        /* slider */
+        .slider {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+            overflow: hidden;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .main-media {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .main-media img, .main-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .thumbnails {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnails img {
+            border: 3px solid #ddd;
+            width: 80px;
+            height: 50px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <section class="slider">
+        <div class="carousel-container">
+            <div class="main-media" id="mainMedia">
+                <img id="currentMedia" src="" alt="Main Media" style="display:none;">
+                <video id="currentVideo" style="display:none;" autoplay muted></video>
+            </div>
+            <div class="thumbnails">
+                <img src="../assets/1422633-hd_1920_810_24fps.mp4" onclick="changeMedia('../assets/1422633-hd_1920_810_24fps.mp4')" alt="Thumbnail 1">
+                <img src="../assets/hero-1-1200x508.webp" onclick="changeMedia('../assets/hero-1-1200x508.webp')" alt="Thumbnail 2">
+                <img src="../assets/853789-hd_1920_1080_25fps.mp4" onclick="changeMedia('../assets/853789-hd_1920_1080_25fps.mp4')" alt="Thumbnail 3">
+                <img src="../assets/IMG_4651.webp" onclick="changeMedia('../assets/IMG_4651.webp')" alt="Thumbnail 4">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const mediaSources = [
+            '../assets/1422633-hd_1920_810_24fps.mp4',
+            '../assets/hero-1-1200x508.webp',
+            '../assets/853789-hd_1920_1080_25fps.mp4',
+            '../assets/IMG_4651.webp'
+        ];
+
+        let currentIndex = 0;
+        const imageTime = 2000; // Image display time in milliseconds
+        const sliderInterval = 2000; // Interval for image transitions
+
+        function changeMedia(mediaSrc) {
+            const mainImage = document.getElementById('currentMedia');
+            const mainVideo = document.getElementById('currentVideo');
+            const isVideo = mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm');
+
+            // Hide both elements first
+            mainImage.style.display = 'none';
+            mainVideo.style.display = 'none';
+
+            // Check media type and display the appropriate element
+            if (isVideo) {
+                mainVideo.src = mediaSrc;
+                mainVideo.style.display = 'block';
+                mainVideo.play();
+                mainVideo.disablePictureInPicture = true; // Disable PiP
+                mainVideo.onended = () => {
+                    currentIndex = (currentIndex + 1) % mediaSources.length;
+                    changeMedia(mediaSources[currentIndex]);
+                };
+            } else {
+                mainImage.src = mediaSrc;
+                mainImage.style.display = 'block';
+                // Set timeout for image transition
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % mediaSources.length;
+                    changeMedia(mediaSources[currentIndex]);
+                }, imageTime);
+            }
+        }
+
+        function startSlider() {
+            changeMedia(mediaSources[currentIndex]);
+
+            // Set interval for image-only slides
+            setInterval(() => {
+                if (!document.getElementById('currentVideo').style.display) {
+                    currentIndex = (currentIndex + 1) % mediaSources.length;
+                    changeMedia(mediaSources[currentIndex]);
+                }
+            }, sliderInterval);
+        }
+
+        // Initialize the slider
+        startSlider();
+    </script>
+</body>
+</html>
