@@ -226,7 +226,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 1030;
             left: 0;
             top: 0;
             width: 100%;
@@ -366,6 +366,96 @@
             color: white;
             transform: scale(1.1); /* Slight zoom effect */
         }
+        /* select  */
+        .jumbo {
+            margin-top: 2rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0.5, 0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .jumbo h1 {
+            color: #d62c1f;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+         .jumbo h2 {
+            color: #333;
+            margin-top: 1rem;
+        }
+
+         .jumbo p {
+            color: #555;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+           /* Shine Effect */
+           .jumbo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.3));
+            opacity: 0.9;
+            transform: rotate(-30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -200%;
+                opacity: 0.6;
+            }
+            100% {
+                left: 200%;
+                opacity: 0;
+            }
+        }
+         .jumbo .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+         .jumbo .btn-primary:hover {
+            background-color: #0056b3;
+            box-shadow: 0 5px 15px rgba(0, 91, 187, 0.3);
+        }
+
+         .jumbo .btn-danger {
+            background-color: #d62c1f;
+            border-color: #d62c1f;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+         .jumbo .btn-danger:hover {
+            background-color: #a72319;
+            box-shadow: 0 5px 15px rgba(214, 44, 31, 0.3);
+        }
+
+        .jumbo .fa-arrow-down {
+            position: absolute;
+            left: 16rem;
+            bottom: 6rem;
+            font-size: 2rem;
+            color: #d62c1f;
+            animation: upDown 2s infinite;
+        }
+
+        @keyframes upDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -447,25 +537,49 @@
         </div>
     </div>
 
-    <section class="top-3">
+    <section>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+            <div class="row">
+                <div class="p-5 mb-4 bg-light rounded-3 jumbo">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold">FINAL YEAR PROJECTS</h1>
+                        <h2 class="display-6 fw-bold">School of  Business Administration</h2>
+
+                        <p class="col-md-8 fs-4">
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minima adipisci omnis fuga incidunt alias asperiores aut, saepe soluta mollitia fugit iusto nihil dolores? In.
+                        </p>
+                        <button class="btn btn-primary btn-lg" type="button">
+                            BBA
+                        </button>
+                        <button class="btn btn-danger btn-lg" type="button">
+                            MBA
+                        </button>
+                        <a href="#catch"><i class="fa-solid fa-arrow-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" id="catch">
+            <div class="row justify-content-center project">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="0" onclick="openModal(0)">
                         <img src="../assets/34.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="1" onclick="openModal(1)">
                         <img src="../assets/37.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="2" onclick="openModal(2)">
                         <img src="../assets/15.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="3" onclick="openModal(3)">
                         <img src="../assets/15.png" alt="Card Image">
                     </div>
@@ -473,25 +587,25 @@
             </div>
         </div>
     </section>    
-    <section class="project">
+    <section >
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+            <div class="row justify-content-center  project">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="0" onclick="openModal(0)">
                         <img src="../assets/34.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="1" onclick="openModal(1)">
                         <img src="../assets/37.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="2" onclick="openModal(2)">
                         <img src="../assets/15.png" alt="Card Image">
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
+                <div class="col-sm-6 col-md-3 col-lg-3 d-flex justify-content-center mb-4">
                     <div class="card" data-index="3" onclick="openModal(3)">
                         <img src="../assets/15.png" alt="Card Image">
                     </div>
@@ -542,7 +656,7 @@
     const projectData = [
         {
             title: "Project 1",
-            image: "./assets/34.png",
+            image: "../assets/34.png",
             link: "http://example.com/project1",
             abstract: "Description for Project 1",
             groupMembers: [
@@ -554,7 +668,7 @@
         },
         {
             title: "Project 2",
-            image: "./assets/37.png",
+            image: "../assets/37.png",
             link: "http://example.com/project2",
             abstract: "Description for Project 2",
             groupMembers: [
@@ -590,11 +704,14 @@
         document.getElementById('modal-skills').innerHTML = keywordsHTML;
 
         document.getElementById('myModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
     }
-
+    
     function closeModal() {
         document.getElementById('myModal').style.display = 'none';
+        document.body.style.overflow = "visible";
     }
 </script>
 
-</html>
+</html> 
+ 
